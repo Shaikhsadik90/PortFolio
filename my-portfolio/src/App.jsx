@@ -197,7 +197,7 @@ export default function App() {
 
       <footer className="footer">
         <div className="footer-content">
-          <h2 className="footer-logo">Jack</h2>
+          <h2 className="footer-logo">S A D I K</h2>
           <p className="footer-tagline">
             Building modern, responsive, and creative websites 🚀
           </p>
