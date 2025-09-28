@@ -3,6 +3,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import "./App.css";
 
 export default function App() {
+
   const [dark, setDark] = useState(true);
   const heroRef = useRef(null);
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
@@ -15,30 +16,56 @@ export default function App() {
   return (
     <div className={`app ${dark ? "dark" : ""}`}>
       {/* Navbar */}
+
       <header className="navbar">
-        <div className="container">
+        <div className="container flex items-center justify-between">
           <h1 className="logo">Sadik.</h1>
-          <nav>
+
+          {/* Navigation links */}
+          <nav className="nav-links">
             <a href="#home">Home</a>
             <a href="#about">About</a>
             <a href="#skills">Skills</a>
             <a href="#projects">Projects</a>
             <a href="#contact">Contact</a>
           </nav>
-          <button className="theme-btn" onClick={() => setDark((d) => !d)}>
-            {dark ? "🌞" : "🌙"}
-          </button>
+
+          {/* Theme + Resume buttons */}
+          <div className="nav-actions flex items-center gap-2">
+            <button className="theme-btn" onClick={() => setDark((d) => !d)}>
+              {dark ? "🌞" : "🌙"}
+            </button>
+            <a
+              href="/SadikSoftwaredev.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-gradient"
+            >
+              Resume
+            </a>
+          </div>
+          {/* Hamburger menu for mobile */}
+          <input type="checkbox" id="menu-toggle" className="menu-toggle" />
+          <label htmlFor="menu-toggle" className="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </label>
+
+
+
         </div>
       </header>
-
 
 
       {/* Hero Section */}
       <section ref={heroRef} id="home" className="hero relative overflow-hidden">
         <motion.div style={{ y }} className="hero-content text-center max-w-4xl mx-auto px-4 py-32 relative z-10">
-          <h1 className="hero-title text-5xl sm:text-6xl font-extrabold mb-6">
-            Hi, I'm <span className="text-gradient animate-gradient">Sadik.</span>
+          <h1 className="hero-title text-5xl sm:text-6xl font-extrabold mb-6 typewriter">
+            Hi, I'm <span className="text-gradient">Sadik.</span>
           </h1>
+
+
           <p className="hero-subtitle text-lg sm:text-xl mb-8 opacity-90">
             A passionate Web Developer who builds modern websites with React & Tailwind.
           </p>
@@ -84,7 +111,7 @@ export default function App() {
       <section id="about" className="about-section">
         <h2>About Me</h2>
         <p>
-          I'm Jack, a passionate and creative full-stack web developer with a focus on building
+          I'm Sadik, a passionate and creative full-stack web developer with a focus on building
           responsive and visually appealing websites and applications. I specialize in modern
           front-end technologies like React and Tailwind CSS, and I also have strong experience
           in back-end development with Node.js, Express, Spring Boot, and relational databases
